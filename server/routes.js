@@ -10,9 +10,10 @@ module.exports = function(app) {
 
   // Insert routes below
   app.use('/api/songza', require('./api/songza'));
+  app.use('/api/soundcloud', require('./api/soundcloud'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
-  app.use('/api/soundcloud', require('./api/soundcloud'));
+
 
   app.use('/auth', require('./auth'));
   
