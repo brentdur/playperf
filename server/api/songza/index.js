@@ -1,7 +1,6 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./songza.controller');
 var Songza = require('songza');
 var songza = new Songza({ userAgent: 'myApp/v0.0.1' });
 

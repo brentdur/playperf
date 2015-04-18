@@ -1,22 +1,14 @@
 'use strict';
 
 angular.module('musicApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+  .controller('MainCtrl', function ($scope, $http, songza) {
+    $scope.data = songza.stations;
+    $scope.send = function(term){
+      songza.searchStations(term);
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
+    $scope.getListen = function(){
+      songza.getListen($scope.stationId);
+    }
+    
   });
