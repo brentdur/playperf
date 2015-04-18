@@ -16,7 +16,7 @@ var request = require('request');
 //router.delete('/:id', controller.destroy);
 
 router.get('/', function(req, res) {
-	request('http://www.google.com', function (error, response, body) {
+	request('http://www.soundcloud.com', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			res.json(200, body);
 	  }
