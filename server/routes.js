@@ -9,15 +9,11 @@ var errors = require('./components/errors');
 module.exports = function(app) {
 
   // Insert routes below
-<<<<<<< HEAD
   app.use('/api/songza', require('./api/songza'));
+  app.use('/api/soundcloud', require('./api/soundcloud'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
-=======
-  app.use('/api/soundcloud', require('./api/soundcloud'));
-  app.use('/api/thing', require('./api/thing'));
-  app.use('/api/user', require('./api/user'));
->>>>>>> e6c5c392d9632e20df3b59f52e11b7dc9851b185
+
 
   app.use('/auth', require('./auth'));
   
