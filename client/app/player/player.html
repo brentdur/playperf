@@ -1,5 +1,5 @@
 <header>
-	<p class="feeling">Now Feeling...</p>
+	<p class="feeling">I'm Feeling...</p>
 	<form ng-submit="send()">
  	<input class="emotion" type="text" placeholder="{{termPlace}}" ng-model="term"></input>
   	<input style="visibility: hidden;" type="submit" value="submit"></input>
@@ -11,11 +11,11 @@
 <div class="images">
 	<img ng-click="getListen()" src="icons/next.png" class="nextIcon"/>
 	<img ng-show="paused" src="icons/play.png" ng-click="toggleAudio()" class="playIcon"/>
-	<img ng-hide="paused" src="icons/volumeLoud.png" class="volumeIcon" ng-click="toggleAudio()" />
+	<img ng-hide="paused" src="icons/pause.png" class="volumeIcon" ng-click="toggleAudio()" />
 	<img src="icons/volumeLoud.png" class="volumeIcon"/>
-	<button ng-click="follow()">Follow this mood</button>
+	<button ng-click="follow()" class="followMood">Follow this mood</button>
 </div>
 
-<progressbar animate="true" value="moving" max="100"></progressbar>
+<progressbar class="bar" animate="true" value="moving" max="100"></progressbar>
 
 

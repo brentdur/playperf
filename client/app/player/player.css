@@ -1,7 +1,9 @@
 /* CSS for player.html */
 
 
-
+* {
+	text-align: center;
+}
 
 
 body {
@@ -14,15 +16,15 @@ body {
 	text-transform: uppercase;
 	color: white;
 	font-size: 650%;
-	padding: 0% 0% 0% 0%;
-	margin: 10% 0% 0% 0%;
+	padding: auto;
+	margin: 10% auto auto auto;
 	letter-spacing: 8px;
 	position: relative;
 
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #FFBF59;
+    color: #FFBF59;
 }
 
 .emotion {
@@ -33,11 +35,17 @@ body {
 	text-transform: lowercase;
 	color: #FFBF59;
 	font-size: 300%;
-	padding: 0%;
-	margin: 4% 0% 0% 0%;
+	padding: auto;
+	margin: auto;
 	letter-spacing: 1px;
 	position: relative;
 
+}
+
+form {
+	text-align: center;
+	vertical-align: center;
+	margin: 0% auto auto 6%;
 }
 
 .songArtist {
@@ -45,39 +53,48 @@ body {
 	text-transform: uppercase;
 	color: white;
 	font-size: 150%;
-	padding: 0% 0% 0% 0%;
-	margin: 4% 14.7% -0.5% 14.7%;
+	padding-top: 2%;
+	margin: auto;
 	letter-spacing: 3px;
 	position: relative;
 }
 
 img {
-	width: 8%;
-	height: 8%;
-	padding: 0.5% 0.5% 0.5% 0.5%;
-	margin: -1% 0% 0% 0%
+	padding: auto;
+	margin: auto;
 }
 
 .images {
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
+	padding: auto 2% auto 2%;
 }
 
 .nextIcon {
-	margin: -2% -1% 0% 0%;
+	margin: auto;
 	width: 9%;
 	height: 9%;
 }
 
-footer {
-	background-color: #7A7A7A;
-	color: white;
-	margin: 10% 0% 0% 0%;
-	padding: 0% 45% 0% 45%;
-	position: fixed;
+.playIcon {
+	width: 8%;
+	height: 8%;
 }
 
+.volumeIcon {
+	width: 9%;
+	height: 9%;
+}
 
+.followMood {
+	background: none;
+	color: white;
+	border: solid;
+	/*margin-left: 1%; */
+}
+
+.bar {
+	margin-top: 5%;
+}
 
 
 
