@@ -9,6 +9,7 @@ var errors = require('./components/errors');
 module.exports = function(app) {
 
   // Insert routes below
+  app.use('/api/spotify', require('./api/spotify'));
   app.use('/api/songza', require('./api/songza'));
   app.use('/api/soundcloud', require('./api/soundcloud'));
   app.use('/api/things', require('./api/thing'));
