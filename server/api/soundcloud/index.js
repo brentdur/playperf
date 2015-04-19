@@ -15,26 +15,27 @@ var request = require('request');
 //router.patch('/:id', controller.update);
 //router.delete('/:id', controller.destroy);
 
-// router.get('/', function(req, res) {
-// 	request('http://www.google.com', function (error, response, body) {
-// 		if (!error && response.statusCode == 200) {
-// 			return res.json(200, body);
-// 	  }
-// 	});
-// });
+router.post('/', function(req, res) {
+	request('http://www.google.com', function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			return res.json(200, body);
+	  }
+	});
+});
 
-
-router.get('/chill', function(req, res) {
-	request('http://api.soundcloud.com/playlists.json?client_id=c8cff8892431fa994f15e719dc19e6ef&tags=chill.json', function (error, response, body) {
+/*
+router.post('/playlist', function(req, res) {
+	request('http://api.soundcloud.com/playlists.json?client_id=c8cff8892431fa994f15e719dc19e6ef&tags=' + req.body.genre.toString(), function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			return res.json(200, JSON.parse(body));
 		}
 
 	});
 });
+*/
 
-router.get('/rock', function(req, res) {
-	request('http://api.soundcloud.com/tracks.json?client_id=c8cff8892431fa994f15e719dc19e6ef&tags=rock', function (error, response, body) {
+router.post('/tracks', function(req, res) {
+	request('http://api.soundcloud.com/tracks.json?client_id=c8cff8892431fa994f15e719dc19e6ef&tags=' + req.body.genre, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			return res.json(200, JSON.parse(body));
 		}
