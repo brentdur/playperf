@@ -27,13 +27,21 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: Helvetica Neue UltraLight;
+    src: url(fonts/HelveticaNeue.dfont);
+}
+
+@font-face {
+    font-family: Raleway-ExtraLight;
+    src: url(fonts/Raleway-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: Raleway-Light;
+    src: url(fonts/Raleway-Light.otf);
+}
+
 /**
  * App-wide Styles
  */
-
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
