@@ -3,7 +3,8 @@
 angular.module('musicApp')
   .factory('songza', function ($http) {
     var e = {
-      stations: []
+      stations: [],
+      song: null
     };
 
     e.searchStations = function(term){
@@ -14,6 +15,14 @@ angular.module('musicApp')
         for(var i = 0; i<data.length; i++){
           e.stations.push(data[i]);
         }
+      });
+    };
+    e.getListen = function(id){
+      var body = {
+        id: id
+      };
+      return $http.post('/api/songza/listen', body).success(function(data){
+        e.song = data;
       });
     };
     return e;

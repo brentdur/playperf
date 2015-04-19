@@ -27,7 +27,7 @@ router.post('/station', function(req, res) {
 });
 
 router.post('/listen', function(req, res) {
-    songza.station.nextSong(req.body.id).then(function(data){
+    songza.station.nextSong(req.body.id, 'aac').then(function(data){
       return res.json(200, data);
     });
 });

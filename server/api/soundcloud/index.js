@@ -15,13 +15,13 @@ var request = require('request');
 //router.patch('/:id', controller.update);
 //router.delete('/:id', controller.destroy);
 
-router.get('/', function(req, res) {
-	request('http://www.google.com', function (error, response, body) {
-		if (!error && response.statusCode == 200) {
-			return res.json(200, body);
-	  }
-	});
-});
+// router.get('/', function(req, res) {
+// 	request('http://www.google.com', function (error, response, body) {
+// 		if (!error && response.statusCode == 200) {
+// 			return res.json(200, body);
+// 	  }
+// 	});
+// });
 
 
 router.get('/chill', function(req, res) {
