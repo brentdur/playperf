@@ -46,7 +46,8 @@ router.post('/tag', function(req, res) {
     // return res.json(200, sit);
 });
 
-router.get('/artist', function(req, res) {
+
+router.post('/artist', function(req, res) {
     songza.search.artist(req.body.tag).then(function(data){
       return res.json(200, data);
     });
@@ -57,6 +58,8 @@ router.post('/similar', function(req, res){
       return res.json(200, data);
   });
 });
+
+
 
 
 module.exports = router;
