@@ -1,7 +1,7 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div ng-show="loaded">
-  <p>{{songTitle}}
+  <p>{{songTitle}}|| {{current.type}} || {{audio.remaining | number : '0'}}</p>
   <div class="col-sm-4"><progressbar animate="false" value="audio.progress*100"></progressbar></div>
   <button ng-click="toggleAudio()">{{controlText}}</button>
   <input class="form-control" style="width:50%;" type="range" min="0" max="1" step="0.01" ng-model="audio.volume">
@@ -13,22 +13,9 @@
   <input type="submit" value="submit"></input>
 </form>
 <form ng-submit="getListen()">
-  <input type="text" placeholder="enter id" ng-model="stationId"></input>
-  <input type="submit" value="submit"></input>
-  <a ng-href="{{link}}">{{link}}</a> <p>{{songTitle}}</p>   
-</form>
-<form ng-submit="send()">
-  <h3>Songza</h3>
-  <input type="text" placeholder="Search term" ng-model="term"></input>
-  <input type="submit" value="submit"></input>
-</form>
-<form ng-submit="getListen()">
-  <input type="text" placeholder="enter id" ng-model="stationId"></input>
-  <input type="submit" value="submit"></input>
+  <input type="submit" value="Play"></input>
   <a ng-href="{{link}}">{{link}}</a> <p>{{songTitle}}</p>   
 </form>
 
 
-
-
-<p ng-repeat="items in data">{{items.name}} {{items.id}}</p>
+<p>{{playable.length}}</p>
