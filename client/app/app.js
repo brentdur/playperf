@@ -6,7 +6,8 @@ angular.module('musicApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'ngAudio'
+  'ngAudio',
+  'angularSoundManager'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

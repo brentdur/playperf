@@ -12,6 +12,7 @@ angular.module('musicApp')
     $scope.controlText = 'Pause';
     $scope.audio = null;
     $scope.current;
+    $scope.played = 0;
 
     $scope.send = function(){
       songza.searchStations($scope.term).success(function(){
@@ -46,9 +47,9 @@ angular.module('musicApp')
     };
 
     $scope.finishLoading = function(){
-      // $scope.loaded = true;
-      $scope.audio = ngAudio.load($scope.link);
-      // $scope.loading = false;
+      $scope.loaded = true;
+      $scope.songs = 'id'
+      $scope.loading = false;
       $timeout(function(){
         $scope.audio.play();
       }, '5000');  

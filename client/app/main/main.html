@@ -1,11 +1,13 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div ng-show="loaded">
+<!-- <div ng-show="loaded">
   <p>{{songTitle}}|| {{current.type}} || {{audio.remaining | number : '0'}}</p>
   <div class="col-sm-4"><progressbar animate="false" value="audio.progress*100"></progressbar></div>
   <button ng-click="toggleAudio()">{{controlText}}</button>
   <input class="form-control" style="width:50%;" type="range" min="0" max="1" step="0.01" ng-model="audio.volume">
-</div>
+</div> -->
+
+<sound-manager></sound-manager>
 
 <form ng-submit="send()">
   <h3>Songza</h3>
