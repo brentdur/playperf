@@ -82,16 +82,25 @@ img {
 	height: 8%;
 }
 
-.volumeIcon {
-	width: 9%;
-	height: 9%;
+.pauseIcon {
+	width: 8%;
+	height: 8%;
+}
+
+.plusVolume {
+	width: 7%;
+	height: 7%;
+}
+
+.minusVolume {
+	width: 7%;
+	height: 87%;
 }
 
 .followMood {
 	background: none;
 	color: white;
 	border: solid;
-	/*margin-left: 1%; */
 }
 
 .bar {

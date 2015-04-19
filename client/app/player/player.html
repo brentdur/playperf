@@ -11,8 +11,11 @@
 <div class="images">
 	<img ng-click="getListen()" src="icons/next.png" class="nextIcon"/>
 	<img ng-show="paused" src="icons/play.png" ng-click="toggleAudio()" class="playIcon"/>
-	<img ng-hide="paused" src="icons/pause.png" class="volumeIcon" ng-click="toggleAudio()" />
-	<img src="icons/volumeLoud.png" class="volumeIcon"/>
+	<img ng-hide="paused" src="icons/pause.png" class="pauseIcon" ng-click="toggleAudio()" />
+	<img src="icons/minusVolume.png" class="minusVolume"/>
+	<img src="icons/plusVolume.png" class="plusVolume"/>
+</div>
+<div class="followButton">
 	<button ng-click="follow()" class="followMood">Follow this mood</button>
 </div>
 
