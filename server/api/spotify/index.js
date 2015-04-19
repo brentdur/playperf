@@ -26,7 +26,7 @@ router.post('/track', function(req, res) {
 		if (!error && response.statusCode == 200) {
 			return res.json(200, JSON.parse(body));
 		}
-	})
+	});
 });
 
 module.exports = router;
