@@ -38,7 +38,6 @@ body {
 	padding: auto;
 	margin: auto;
 	letter-spacing: 1px;
-	position: relative;
 
 }
 
@@ -58,7 +57,6 @@ form {
 	padding-left: 15%; 
 	margin: auto;
 	letter-spacing: 3px;
-	position: relative;
 }
 
 img {
@@ -66,41 +64,44 @@ img {
 	margin: auto;
 }
 
-.images {
-	margin: auto;
-	padding: auto 2% auto 2%;
-}
 
 .nextIcon {
-	margin: auto;
+	margin: auto -1% auto -1%;
 	width: 9%;
 	height: 9%;
 }
 
 .playIcon {
+	margin: auto -1% auto -1%;
 	width: 8%;
 	height: 8%;
 }
 
 .pauseIcon {
+	margin: auto -1% auto -1%;
 	width: 8%;
 	height: 8%;
 }
 
 .plusVolume {
-	width: 7%;
-	height: 7%;
+	width: 6.5%;
+	height: 6.5%;
 }
 
 .minusVolume {
-	width: 7%;
-	height: 87%;
+	width: 6.5%;
+	height: 6.5%;
 }
 
 .followMood {
 	background: none;
 	color: white;
 	border: solid;
+	display: inline;
+	text-align: center;
+	margin-right: 2%;
+	margin-left: 2%;
+	position: relative;
 }
 
 .bar {
@@ -109,14 +110,21 @@ img {
 
 .volNumber {
 	color: white;
-	font-family: "Raleway-ExtraLight", Sans-Serif;
+	font-family: "HelveticaNeue-Light", Sans-Serif;
 	display: inline;
+}
+
+.volume {
+	display: inline;
+}
+
+.control {
+	display: inline;
+	padding-left: -5%;
+	padding-right: -5%;
 }
 
 .white {
 	color: white;
 	margin-top: 15px;
 }
-
-
-
