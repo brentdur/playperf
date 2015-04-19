@@ -35,7 +35,8 @@ angular.module('musicApp')
       $scope.tracks = [];
       songza.searchStations($scope.term).success(function(){
         for(var i = 0; i < $scope.stations.length; i++){
-          $scope.playable.push({type: 'songza', plays: 0, where: 0, item: $scope.stations[i]});
+        	var why = 'This station was chosen from a search of the term ' + $scope.term;
+          $scope.playable.push({type: 'songza', plays: 0, where: why , item: $scope.stations[i]});
         }
         songza.clearStations();
         $scope.stations = [];
@@ -43,7 +44,8 @@ angular.module('musicApp')
 
       soundcloud.searchTracks($scope.soundTerm).success(function(){
         for(var i = 0; i < $scope.tracks.length/4; i++){
-          $scope.playable.push({type: 'cloud', plays: 0, where: 1, item: $scope.tracks[i]});
+        	var why = 'This track was chosen from a search of the term ' + $scope.term;
+          $scope.playable.push({type: 'cloud', plays: 0, where: why, item: $scope.tracks[i]});
         }
         soundcloud.clearTracks();
         $scope.tracks = [];
@@ -55,9 +57,11 @@ angular.module('musicApp')
       	}
       	for(var i = 0; i < end; i++){
       		var artist = data.tracks.items[i].artists[0].name;
+      		console.log(artist);
       		songza.searchStations(artist).success(function(data){
       			for(var j = 0; j < data.length; j++){
-		          $scope.playable.push({type: 'songza', plays: 0, where: 2, item: data[i]});
+      				var why = 'This was chosen from an artist search of the term ' + artist;
+		          $scope.playable.push({type: 'songza', plays: 0, where: why, item: data[i]});
 		        }
       		});
       		// var album = data.tracks.items[i].album.name;
