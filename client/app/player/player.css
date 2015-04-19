@@ -1,25 +1,7 @@
 /* CSS for player.html */
 
 
-@font-face {
-	font-family: Helvetica Neue UltraLight;
-	src: url(font/HelveticaNeue.dfont);
-}
 
-@font-face {
-	font-family: Rockwell;
-	src: url(font/Aleo-Bold.otf);
-}
-
-@font-face {
-	font-family: Raleway-ExtraLight;
-	src: url(font/Raleway-ExtraLight.otf);
-}
-
-@font-face {
-	font-family: Raleway-Light;
-	src: url(font/Raleway-Light.otf);
-}
 
 
 body {
@@ -40,7 +22,7 @@ body {
 }
 
 .emotion {
-	font-family: "Raleway-SemiBold", "Rockwell", "Times New Roman", Serif;
+	font-family: "Raleway-SemiBold", Sans-Serif;
 	text-transform: lowercase;
 	color: #FFBF59;
 	font-size: 300%;
@@ -63,7 +45,6 @@ body {
 }
 
 img {
-	float: left;
 	width: 8%;
 	height: 8%;
 	padding: 0.5% 0.5% 0.5% 0.5%;
@@ -71,7 +52,8 @@ img {
 }
 
 .images {
-	margin-left: 42%
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .nextIcon {
@@ -83,7 +65,7 @@ img {
 footer {
 	background-color: #7A7A7A;
 	color: white;
-	margin: 15.9% 0% 0% 0%;
+	margin: 10% 0% 0% 0%;
 	padding: 0% 45% 0% 45%;
 	position: fixed;
 }
