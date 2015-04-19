@@ -6,14 +6,15 @@
 </form>
 </header>
 <div class="songArtist">
-	<p>{{songTitle}} - {{artist}} || {{source}} || {{playable.length}}</p>
+	<p>{{songTitle}} - {{artist}} || {{playable.length}} || {{where}}</p>
 </div>
 <div class="images">
 	<img ng-click="getListen()" src="icons/next.png" class="nextIcon"/>
 	<img ng-show="paused" src="icons/play.png" ng-click="toggleAudio()" class="playIcon"/>
 	<img ng-hide="paused" src="icons/pause.png" class="pauseIcon" ng-click="toggleAudio()" />
-	<img src="icons/minusVolume.png" class="minusVolume"/>
-	<img src="icons/plusVolume.png" class="plusVolume"/>
+	<img ng-click="volumeSlider(false)" src="icons/minusVolume.png" class="minusVolume"/>
+	<img ng-click="volumeSlider(true)" src="icons/plusVolume.png" class="plusVolume"/>
+	{{volume}}
 </div>
 <div class="followButton">
 	<button ng-click="follow()" class="followMood">Follow this mood</button>

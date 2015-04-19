@@ -33,7 +33,7 @@ router.post('/listen', function(req, res) {
 });
 
 router.get('/getTags', function(req, res) {
-    songza.tag.getAll().then(function(data){
+    songza.tag.getAll(false).then(function(data){
       return res.json(200, data);
     });
 });

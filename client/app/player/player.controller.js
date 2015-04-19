@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('musicApp')
-  .controller('PlayerCtrl', function ($scope, $http, songza, soundcloud, spotify, angularPlayer) {
+  .controller('PlayerCtrl', function ($scope, $http, songza, soundcloud, spotify, angularPlayer, $timeout) {
     $scope.stations = songza.stations;
     $scope.tracks = soundcloud.tracks;
     $scope.playable = [];
@@ -10,13 +10,13 @@ angular.module('musicApp')
     $scope.loading = false;
     $scope.paused = true;
     $scope.controlText = 'Pause';
-    $scope.audio = null;
     $scope.current;
     $scope.played = 0;
     $scope.moving = 0;
     angularPlayer.init();
     $scope.termPlace = '_Enter Mood';
     $scope.isPlaying = angularPlayer.isPlayingStatus;
+    $scope.volume = 90;
 
 
     $scope.songs = {
@@ -27,20 +27,24 @@ angular.module('musicApp')
     };  
 
     $scope.send = function(){
+      $scope.playable = [];
+      songza.clearStations();
+      $scope.stations = [];
+      soundcloud.clearTracks();
+      $scope.tracks = [];
       songza.searchStations($scope.term).success(function(){
         for(var i = 0; i < $scope.stations.length; i++){
-          $scope.playable.push({type: 'songza', plays: 0, item: $scope.stations[i]});
+          $scope.playable.push({type: 'songza', plays: 0, where: 0, item: $scope.stations[i]});
         }
         songza.clearStations();
         $scope.stations = [];
       });
       soundcloud.searchTracks($scope.soundTerm).success(function(){
         for(var i = 0; i < $scope.tracks.length/4; i++){
-          $scope.playable.push({type: 'cloud', plays: 0, item: $scope.tracks[i]});
+          $scope.playable.push({type: 'cloud', plays: 0, where: 1, item: $scope.tracks[i]});
         }
         soundcloud.clearTracks();
         $scope.tracks = [];
-        $scope.getListen();
       });
       spotify.getFeeling($scope.soundTerm).success(function(data){
       	console.log(data);
@@ -52,28 +56,30 @@ angular.module('musicApp')
       		var artist = data.tracks.items[i].artists[0].name;
       		songza.searchStations(artist).success(function(data){
       			for(var j = 0; j < data.length; j++){
-		          $scope.playable.push({type: 'songza', plays: 0, item: data[i]});
+		          $scope.playable.push({type: 'songza', plays: 0, where: 2, item: data[i]});
 		        }
       		});
-      		var album = data.tracks.items[i].album.name;
-      		songza.searchStations(album).success(function(data){
-      			for(var j = 0; j < data.length; j++){
-		          $scope.playable.push({type: 'songza', plays: 0, item: data[i]});
-		        }
-      		});
+      		// var album = data.tracks.items[i].album.name;
+      		// songza.searchStations(album).success(function(data){
+      		// 	for(var j = 0; j < data.length; j++){
+		      //     $scope.playable.push({type: 'songza', plays: 0, where: 3, item: data[i]});
+		      //   }
+		       
+      		// });
       	}
       });
+      $timeout(function(){$scope.getListen()}, 6000);
     };
 
     $scope.getListen = function(){
+    	console.log("running");
       $scope.loading = true;
-      if($scope.audio != null){
-          $scope.audio.stop();
-      }
+      angularPlayer.stop();
       var choose =  Math.floor(Math.random() * $scope.playable.length);
       var item = $scope.playable[choose];
       $scope.current = item;
       $scope.source = item.type;
+      $scope.where = item.where;
       if(item.type === 'songza'){
       	if(item.plays > 1) {
       		$scope.playable.splice(choose, 1);
@@ -102,7 +108,6 @@ angular.module('musicApp')
       for(var i = 0; i < $scope.playable.length; i++){
       	console.log($scope.playable.item.name);
       }
-      console.log(angularPlayer.adjustVolumeSlider());
     };
 
     $scope.$on('track:progress', function(event, data) {
@@ -175,12 +180,6 @@ angular.module('musicApp')
       return 'c8cff8892431fa994f15e719dc19e6ef';
     };
 
-    $scope.$watch('audio.remaining', function(){
-      if($scope.audio.remaining <= 0){
-        $scope.getListen();
-      }
-    });
-
     $scope.toggleAudio = function(){
       if(!$scope.paused){
         angularPlayer.pause();
@@ -189,6 +188,11 @@ angular.module('musicApp')
         angularPlayer.play();
       }
       $scope.paused = !$scope.paused;
+    };
+
+    $scope.volumeSlider = function(increase){
+    	angularPlayer.adjustVolume(increase);
+    	$scope.volume = angularPlayer.getVolume();
     };
     
   });
