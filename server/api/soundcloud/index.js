@@ -41,6 +41,14 @@ router.post('/tracks', function(req, res) {
 	});
 });
 
+router.post('/specific', function(req, res){
+	request('http://api.soundcloud.com/tracks.json?client_id=c8cff8892431fa994f15e719dc19e6ef&ids=' + req.body.id, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			return res.json(200, JSON.parse(body));
+		}
+	});
+});
+
 
 
 module.exports = router;

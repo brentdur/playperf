@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('musicApp')
-  .controller('MainCtrl', function ($scope, $http, songza, soundcloud, ngAudio, $timeout) {
+  .controller('MainCtrl', function ($scope, $http, songza, soundcloud, ngAudio, $timeout, angularPlayer) {
     $scope.stations = songza.stations;
     $scope.tracks = soundcloud.tracks;
     $scope.playable = [];
@@ -13,6 +13,15 @@ angular.module('musicApp')
     $scope.audio = null;
     $scope.current;
     $scope.played = 0;
+    angularPlayer.init();
+
+
+    $scope.songs = {
+      id: 'one',
+      title: 'songTitle',
+      artist: 'ME',
+      url: 'https://api.soundcloud.com/tracks/69837941/stream?client_id=c8cff8892431fa994f15e719dc19e6ef'
+    };  
 
     $scope.send = function(){
       songza.searchStations($scope.term).success(function(){
@@ -48,11 +57,11 @@ angular.module('musicApp')
 
     $scope.finishLoading = function(){
       $scope.loaded = true;
-      $scope.songs = 'id'
+      angularPlayer.addTrack({id: $scope.played.toString(), title: $scope.songTitle, artist: 'ME', url: $scope.link});
+      angularPlayer.nextTrack();
+      $scope.played += 1;
       $scope.loading = false;
-      $timeout(function(){
-        $scope.audio.play();
-      }, '5000');  
+      angularPlayer.play();
     };
 
     $scope.songzaPlay = function(obj){

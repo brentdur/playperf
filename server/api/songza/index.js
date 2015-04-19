@@ -47,9 +47,15 @@ router.post('/tag', function(req, res) {
 });
 
 router.get('/artist', function(req, res) {
-    songza.search.artist(req.body.tag).then(function(date){
+    songza.search.artist(req.body.tag).then(function(data){
       return res.json(200, data);
     });
+});
+
+router.post('/similar', function(req, res){
+  songza.station.similar(req.body.id).then(function(data){
+      return res.json(200, data);
+  });
 });
 
 

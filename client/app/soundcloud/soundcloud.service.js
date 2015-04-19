@@ -6,6 +6,10 @@ angular.module('musicApp')
       tracks: []
     };
 
+    e.clearTracks = function(){
+      e.tracks = [];
+    };
+
     e.searchTracks = function(term){
       var body = {
         genre: term
@@ -16,5 +20,13 @@ angular.module('musicApp')
         }
       });
     };
+
+    e.getSpecific = function(id){
+      var body = {
+        id: id
+      };
+      return $http.post('/api/soundcloud/specific', body);
+    };
+    
     return e;
   });

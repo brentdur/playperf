@@ -1,13 +1,21 @@
 <header>
 	<p class="feeling">Now Feeling...</p>
-	<p class="emotion">party</p>
+	<form ng-submit="send()">
+ 	<input class="emotion" type="text" placeholder="{{termPlace}}" ng-model="term"></input>
+  	<input style="visibility: hidden;" type="submit" value="submit"></input>
+</form>
 </header>
 <div class="songArtist">
-	<p>Levels - Avicii</p>
+	<p>{{songTitle}} - {{artist}} || {{source}} || {{playable.length}}</p>
 </div>
 <div class="images">
-	<img src="icons/next.png" class="nextIcon"/>
-	<img src="icons/play.png" class="playIcon"/>
+	<img ng-click="getListen()" src="icons/next.png" class="nextIcon"/>
+	<img ng-show="paused" src="icons/play.png" ng-click="toggleAudio()" class="playIcon"/>
+	<img ng-hide="paused" src="icons/volumeLoud.png" class="volumeIcon" ng-click="toggleAudio()" />
 	<img src="icons/volumeLoud.png" class="volumeIcon"/>
+	<button ng-click="follow()">Follow this mood</button>
 </div>
+
+<progressbar animate="true" value="moving" max="100"></progressbar>
+
 

@@ -21,7 +21,14 @@ body {
 
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #FFBF59;
+}
+
 .emotion {
+	background: none;
+  	border: none;
+  	text-align: center;
 	font-family: "Raleway-SemiBold", Sans-Serif;
 	text-transform: lowercase;
 	color: #FFBF59;

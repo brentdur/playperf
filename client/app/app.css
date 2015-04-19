@@ -45,3 +45,5 @@
 /**
  * App-wide Styles
  */
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
