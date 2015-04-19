@@ -1,0 +1,95 @@
+/* CSS for player.html */
+
+
+@font-face {
+	font-family: Helvetica Neue UltraLight;
+	src: url(font/HelveticaNeue.dfont);
+}
+
+@font-face {
+	font-family: Rockwell;
+	src: url(font/Aleo-Bold.otf);
+}
+
+@font-face {
+	font-family: Raleway-ExtraLight;
+	src: url(font/Raleway-ExtraLight.otf);
+}
+
+@font-face {
+	font-family: Raleway-Light;
+	src: url(font/Raleway-Light.otf);
+}
+
+
+body {
+	text-align: center;
+	background-color: #27384A;
+}
+
+.feeling {
+	font-family: "Raleway-ExtraLight", "HelveticaNeue-UltraLight", "Helvetica Neue Ultra Light" Helvetica, Sans-Serif;
+	text-transform: uppercase;
+	color: white;
+	font-size: 650%;
+	padding: 0% 0% 0% 0%;
+	margin: 10% 0% 0% 0%;
+	letter-spacing: 8px;
+	position: relative;
+
+}
+
+.emotion {
+	font-family: "Raleway-SemiBold", "Rockwell", "Times New Roman", Serif;
+	text-transform: lowercase;
+	color: #FFBF59;
+	font-size: 300%;
+	padding: 0%;
+	margin: 4% 0% 0% 0%;
+	letter-spacing: 1px;
+	position: relative;
+
+}
+
+.songArtist {
+	font-family: "Raleway-Light", "HelveticaNeue-Light", "Helvetica Ultra Light" Helvetica, Sans-Serif;
+	text-transform: uppercase;
+	color: white;
+	font-size: 150%;
+	padding: 0% 0% 0% 0%;
+	margin: 4% 14.7% -0.5% 14.7%;
+	letter-spacing: 3px;
+	position: relative;
+}
+
+img {
+	float: left;
+	width: 8%;
+	height: 8%;
+	padding: 0.5% 0.5% 0.5% 0.5%;
+	margin: -1% 0% 0% 0%
+}
+
+.images {
+	margin-left: 42%
+}
+
+.nextIcon {
+	margin: -2% -1% 0% 0%;
+	width: 9%;
+	height: 9%;
+}
+
+footer {
+	background-color: #7A7A7A;
+	color: white;
+	margin: 15.9% 0% 0% 0%;
+	padding: 0% 45% 0% 45%;
+	position: fixed;
+}
+
+
+
+
+
+
