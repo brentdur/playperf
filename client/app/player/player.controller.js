@@ -39,6 +39,7 @@ angular.module('musicApp')
         songza.clearStations();
         $scope.stations = [];
       });
+
       soundcloud.searchTracks($scope.soundTerm).success(function(){
         for(var i = 0; i < $scope.tracks.length/4; i++){
           $scope.playable.push({type: 'cloud', plays: 0, where: 1, item: $scope.tracks[i]});
@@ -47,7 +48,6 @@ angular.module('musicApp')
         $scope.tracks = [];
       });
       spotify.getFeeling($scope.soundTerm).success(function(data){
-      	console.log(data);
       	var end = 5;
       	if(end > data.tracks.items.length){
       		end = data.tracks.items.length;
@@ -69,6 +69,23 @@ angular.module('musicApp')
       	}
       });
       $timeout(function(){$scope.getListen()}, 6000);
+      $timeout(function(){$scope.findSims()}, 12000);
+    };
+
+    $scope.findSims = function(){
+    	songza.getMoods().success(function(data){
+      	for(var i = 0; i < data.length; i++){
+      		var name = data[i].name.toLowerCase();
+      		var tags = data[i].keywords;
+      		if($scope.term === name || tags.indexOf($scope.term) != -1){
+      			for(var j = 0; j < 5; j++){
+      				songza.getStation(data[i].station_ids[j]).success(function(data){
+      					$scope.playable.push({type: 'songza', plays: 0, where: 3, item: data});
+      				});
+      			}
+      		}
+      	}
+      });
     };
 
     $scope.getListen = function(){
@@ -153,7 +170,6 @@ angular.module('musicApp')
     	}
     	else if($scope.source === 'cloud'){
     		soundcloud.getSpecific($scope.current).success(function(data){
-    			console.log(data);
     			var terms = data[0].tag_list.split(' ');
     			for(var i = 0; i< terms.length; i++){
     				songza.searchStations(terms[i]).success(function(info){

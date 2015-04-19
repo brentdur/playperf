@@ -45,5 +45,8 @@ angular.module('musicApp')
       };
       return $http.post('api/songza/station', body);
     }
+    e.getMoods = function(){
+      return $http.post('api/songza/tag', {tag: 'moods'});
+    }
     return e;
   });
