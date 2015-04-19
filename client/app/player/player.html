@@ -5,9 +5,10 @@
   	<input style="visibility: hidden;" type="submit" value="submit"></input>
 </form>
 </header>
-<div class="songArtist">
-	<p>{{songTitle}} - {{artist}} || {{playable.length}} || {{where}}</p>
+<div ng-hide="loading" class="songArtist">
+	<p>{{songTitle}} - {{artist}}</p>
 </div>
+<i ng-show="loading" class="fa fa-cog fa-spin fa-4x white"></i>
 <div class="images">
 	<img ng-click="getListen()" src="icons/next.png" class="nextIcon"/>
 	<img ng-show="paused" src="icons/play.png" ng-click="toggleAudio()" class="playIcon"/>

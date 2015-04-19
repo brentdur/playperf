@@ -27,6 +27,7 @@ angular.module('musicApp')
     };  
 
     $scope.send = function(){
+    	$scope.loading = true;
       $scope.playable = [];
       songza.clearStations();
       $scope.stations = [];
