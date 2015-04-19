@@ -69,7 +69,7 @@ angular.module('musicApp')
       	}
       });
       $timeout(function(){$scope.getListen()}, 6000);
-      $timeout(function(){$scope.findSims()}, 12000);
+      // $timeout(function(){$scope.findSims()}, 12000);
     };
 
     $scope.findSims = function(){
