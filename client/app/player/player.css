@@ -47,7 +47,7 @@ form {
 	margin: 0% auto auto 6%;
 }
 
-.songArtist {
+a.songArtist {
 	font-family: "Raleway-Light", "HelveticaNeue-Light", "Helvetica Ultra Light" Helvetica, Sans-Serif;
 	text-transform: uppercase;
 	color: white;
@@ -127,4 +127,17 @@ img {
 .white {
 	color: white;
 	margin-top: 15px;
+}
+
+a {
+	color: white;
+}
+
+a:hover{
+	color:white;
+}
+
+.subtext {
+	color: white;
+	font-size: 1em;
 }

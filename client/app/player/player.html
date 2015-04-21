@@ -5,10 +5,16 @@
   	<input style="visibility: hidden;" type="submit" value="submit"></input>
 </form>
 </header>
-<div ng-hide="loading" class="songArtist">
-	<p>{{songTitle}} - {{artist}}</p>
+<div ng-hide="loading" class="row">
+	<a ng-href="{{perma}}" class="songArtist" target="_blank">{{songTitle}} - {{artist}}</a>
 </div>
-<i ng-show="loading" class="fa fa-cog fa-spin fa-4x white"></i>
+<div class="row">
+	<i ng-show="loading" class="fa fa-cog fa-spin fa-4x white"></i>
+	<div ng-hide="loading" class="subtext">
+		<a ng-show="source==='cloud'" href="http://soundcloud.com" target="_blank">provided by <img src="icons/soundcloud.png" /></a>
+		<p href="http://songza.com" target="_blank" ng-show="source==='songza'">provided by Songza</p>
+	</div>
+</div>
 <div class="control">
 	<img ng-click="getListen()" src="icons/next.png" class="nextIcon"/>
 	<img ng-show="paused" src="icons/play.png" ng-click="toggleAudio()" class="playIcon"/>

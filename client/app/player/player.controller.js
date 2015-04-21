@@ -17,6 +17,8 @@ angular.module('musicApp')
     $scope.termPlace = '_Enter Mood';
     $scope.isPlaying = angularPlayer.isPlayingStatus;
     $scope.volume = 90;
+    $scope.source = '';
+    $scope.perma = '';
 
 
     $scope.songs = {
@@ -42,15 +44,16 @@ angular.module('musicApp')
         $scope.stations = [];
       });
 
-      soundcloud.searchTracks($scope.soundTerm).success(function(){
-        for(var i = 0; i < $scope.tracks.length/4; i++){
+      soundcloud.searchTracks($scope.term).success(function(data){
+       	
+        for(var i = 0; i < data.length/4; i++){
         	var why = 'This track was chosen from a search of the term ' + $scope.term;
-          $scope.playable.push({type: 'cloud', plays: 0, where: why, item: $scope.tracks[i]});
+          $scope.playable.push({type: 'cloud', plays: 0, where: why, item: data[i]});
         }
         soundcloud.clearTracks();
         $scope.tracks = [];
       });
-      spotify.getFeeling($scope.soundTerm).success(function(data){
+      spotify.getFeeling($scope.term).success(function(data){
       	var end = 5;
       	if(end > data.tracks.items.length){
       		end = data.tracks.items.length;
@@ -103,6 +106,7 @@ angular.module('musicApp')
       $scope.source = item.type;
       $scope.where = item.where;
       if(item.type === 'songza'){
+      	$scope.source = 'songza';
       	if(item.plays > 1) {
       		$scope.playable.splice(choose, 1);
       	}
@@ -110,6 +114,7 @@ angular.module('musicApp')
         $scope.songzaPlay(item.item);
       }
       else if(item.type === 'cloud'){
+      	$scope.source = 'cloud';
       	$scope.playable.splice(choose, 1);
         $scope.soundCloudPlay(item.item);
       }
@@ -146,6 +151,8 @@ angular.module('musicApp')
 
     $scope.songzaPlay = function(obj){
       $scope.current = obj.id;
+      $scope.perma = obj.url;
+      console.log(obj.url);
       songza.getListen(obj.id).success(function(data){
         $scope.link = data.listen_url;
         $scope.songTitle = data.song.title;
@@ -193,6 +200,7 @@ angular.module('musicApp')
       $scope.link = obj.stream_url+'?client_id='+$scope.clientID();
       $scope.songTitle = obj.title;
       $scope.artist = obj.user.username;
+      $scope.perma = obj.permalink_url;
       $scope.finishLoading();
 
     };
