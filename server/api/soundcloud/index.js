@@ -1,5 +1,8 @@
 'use strict';
 
+
+//Native endpoints used to allow access to soundclouds api
+
 var express = require('express');
 // var controller = require('./soundcloud.controller');
 

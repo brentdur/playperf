@@ -1,5 +1,6 @@
 /**
  * Main application file
+ * Basic server set up and starting
  */
 
 'use strict';

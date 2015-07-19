@@ -1,5 +1,8 @@
 'use strict';
 
+// Gets all songza endpoints used and makes them available as native endpoints.
+// This uses a middleware to access Songza as Songza has not made their endpoints publicly available.
+
 var express = require('express');
 var Songza = require('songza');
 var songza = new Songza({ userAgent: 'myApp/v0.0.1' });

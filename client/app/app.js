@@ -1,5 +1,9 @@
 'use strict';
 
+/*
+  Main front end application, most of the actual work (cross referencing and such) is done in the frontend
+ */
+
 angular.module('musicApp', [
   'ngCookies',
   'ngResource',

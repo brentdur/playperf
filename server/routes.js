@@ -1,5 +1,6 @@
 /**
  * Main application routes
+ * Retrieves all endpoints and connects them to the main server
  */
 
 'use strict';

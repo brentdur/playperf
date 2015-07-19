@@ -1,7 +1,12 @@
 'use strict';
 
+/*
+	Connects with spotifies api
+ */
+
 var express = require('express');
 var controller = require('./spotify.controller');
+
 
 var router = express.Router();
 var request = require('request');

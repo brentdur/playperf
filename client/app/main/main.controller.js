@@ -1,4 +1,7 @@
 'use strict';
+/*
+  Controller for the main page
+ */
 
 angular.module('musicApp')
   .controller('MainCtrl', function ($scope, $http, songza, soundcloud, ngAudio, $timeout, angularPlayer) {
