@@ -14,3 +14,7 @@ Key features:
 The backend is designed to display the server and provide native endpoints for the frontend, the frontend does most of the general work (crossreferencing and such) to make the results more apparant and immediate.
 
 Test server is currently hosted at http://music.brentondurkee.com
+
+Future Features:
+  * Improve cross search algorithms and efficiency
+  * Add an ability to "Follow this mood", which will retailor the results using the current song as the seed
